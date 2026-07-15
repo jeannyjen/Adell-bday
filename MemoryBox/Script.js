@@ -1,23 +1,102 @@
-const loading = document.getElementById("loading");
+// =========================
+// LOADING SCREEN
+// =========================
 
+const loading = document.getElementById("loading");
 const cover = document.getElementById("cover");
 
-setTimeout(()=>{
 
-loading.style.opacity="0";
+window.addEventListener("load",()=>{
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-loading.style.display="none";
+        loading.style.opacity = "0";
 
-cover.style.opacity="1";
 
-},1000);
+        setTimeout(()=>{
 
-},2500);
+            loading.style.display="none";
 
-document.getElementById("openBtn").onclick=function(){
+        },1000);
 
-alert("Next Part → Gift Box Animation 🌻");
 
-}
+    },2500);
+
+
+});
+
+
+
+
+// =========================
+// OPEN GIFT BUTTON
+// =========================
+
+
+const openGift = document.getElementById("openGift");
+
+const giftScene = document.getElementById("giftScene");
+
+
+openGift.addEventListener("click",()=>{
+
+
+    cover.style.display="none";
+
+
+    giftScene.style.display="flex";
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+
+});
+
+
+
+
+// =========================
+// CLICK GIFT BOX
+// =========================
+
+
+const giftBox = document.getElementById("giftBox");
+
+const memoryTable = document.getElementById("memoryTable");
+
+
+giftBox.addEventListener("click",()=>{
+
+
+    giftBox.style.transform="scale(1.2)";
+
+
+    setTimeout(()=>{
+
+
+        giftScene.style.display="none";
+
+
+        memoryTable.style.display="block";
+
+
+        window.scrollTo({
+
+            top:memoryTable.offsetTop,
+
+            behavior:"smooth"
+
+        });
+
+
+    },700);
+
+
+
+});
