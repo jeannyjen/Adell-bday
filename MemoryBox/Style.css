@@ -1,203 +1,532 @@
-*{
+/* =========================
+   BASIC RESET
+========================= */
 
-margin:0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-padding:0;
+body {
 
-box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+
+    background: #FAF6F0;
+
+    color: #7A5C43;
+
+    overflow-x: hidden;
 
 }
 
-body{
 
-font-family:'Poppins',sans-serif;
+/* =========================
+   LOADING
+========================= */
 
-background:#FAF6F0;
 
-overflow:hidden;
+#loading {
 
-}
+    position: fixed;
 
-#loading{
+    width: 100%;
+    height: 100vh;
 
-position:fixed;
+    background: #FAF6F0;
 
-width:100%;
+    display: flex;
 
-height:100vh;
+    flex-direction: column;
 
-background:#FAF6F0;
+    justify-content: center;
 
-display:flex;
+    align-items: center;
 
-flex-direction:column;
+    z-index: 9999;
 
-justify-content:center;
-
-align-items:center;
-
-z-index:999;
-
-transition:1s;
+    transition: 1s;
 
 }
 
-.flower{
 
-font-size:70px;
+.sunflower {
 
-animation:spin 3s linear infinite;
+    font-size: 80px;
 
-}
-
-#loading p{
-
-margin-top:20px;
-
-color:#7A5C43;
-
-font-size:15px;
-
-letter-spacing:2px;
+    animation: rotateFlower 3s linear infinite;
 
 }
 
-@keyframes spin{
 
-from{
+#loading p {
 
-transform:rotate(0deg);
+    margin-top: 20px;
 
-}
+    letter-spacing: 3px;
 
-to{
-
-transform:rotate(360deg);
+    font-size: 14px;
 
 }
 
-}
 
-#cover{
+@keyframes rotateFlower {
 
-width:100%;
 
-height:100vh;
+    from {
 
-background:
+        transform: rotate(0deg);
 
-linear-gradient(rgba(255,253,248,.78),rgba(255,253,248,.78)),
+    }
 
-url("assets/background/paper.jpg");
 
-background-size:cover;
+    to {
 
-background-position:center;
+        transform: rotate(360deg);
 
-display:flex;
+    }
 
-justify-content:center;
-
-align-items:center;
-
-padding:25px;
-
-text-align:center;
-
-opacity:0;
-
-transition:1s;
 
 }
 
-.overlay{
 
-max-width:500px;
+/* =========================
+   COVER
+========================= */
 
-}
 
-.overlay h3{
+#cover {
 
-font-weight:400;
 
-letter-spacing:4px;
+    min-height: 100vh;
 
-color:#8A6B4D;
+    display: flex;
 
-margin-bottom:10px;
+    justify-content: center;
 
-}
+    align-items: center;
 
-.overlay h1{
+    text-align: center;
 
-font-family:'Caveat',cursive;
+    padding: 30px;
 
-font-size:48px;
 
-color:#7A5C43;
+    background:
 
-margin-bottom:20px;
+    linear-gradient(
+        rgba(250,246,240,.85),
+        rgba(250,246,240,.85)
+    ),
 
-}
+    url("assets/background/paper.jpg");
 
-.overlay h2{
 
-font-size:26px;
+    background-size: cover;
 
-margin-bottom:20px;
+    background-position:center;
 
-color:#8A6B4D;
-
-}
-
-.overlay p{
-
-line-height:1.8;
-
-color:#6E5A48;
-
-margin-bottom:40px;
 
 }
 
-button{
 
-padding:16px 35px;
+.cover-content {
 
-border:none;
 
-border-radius:50px;
+    max-width:600px;
 
-background:#F5C542;
-
-cursor:pointer;
-
-font-size:16px;
-
-transition:.3s;
 
 }
 
-button:hover{
 
-transform:scale(1.05);
+.cover-content h3 {
 
-background:#efb920;
+
+    font-size:18px;
+
+    letter-spacing:5px;
+
+    font-weight:400;
 
 }
+
+
+.cover-content h1 {
+
+
+    font-family:"Caveat", cursive;
+
+    font-size:55px;
+
+    margin:15px 0;
+
+    color:#7A5C43;
+
+
+}
+
+
+
+.cover-content h2 {
+
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.cover-content p {
+
+
+    line-height:2;
+
+    color:#8B6F52;
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+/* BUTTON */
+
+
+button {
+
+
+    border:none;
+
+    background:#F5C542;
+
+    color:#5E452E;
+
+
+    padding:16px 40px;
+
+
+    border-radius:50px;
+
+
+    font-size:16px;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+button:hover {
+
+
+    transform:scale(1.08);
+
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+
+}
+
+
+/* =========================
+   GIFT SCENE
+========================= */
+
+
+#giftScene {
+
+
+    height:100vh;
+
+
+    display:none;
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    background:#FAF6F0;
+
+
+}
+
+
+.gift-box {
+
+
+    font-size:150px;
+
+
+    cursor:pointer;
+
+
+    animation:float 3s ease-in-out infinite;
+
+
+}
+
+
+
+.gift-text {
+
+
+    margin-top:30px;
+
+
+    font-size:18px;
+
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+@keyframes float {
+
+
+    0% {
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+    50% {
+
+
+        transform:translateY(-20px);
+
+
+    }
+
+
+    100% {
+
+
+        transform:translateY(0);
+
+
+    }
+
+}
+
+
+
+/* =========================
+   MEMORY TABLE
+========================= */
+
+
+#memoryTable {
+
+
+    min-height:100vh;
+
+
+    padding:60px 20px;
+
+
+    display:none;
+
+
+    background:#EADBC8;
+
+
+}
+
+
+
+.title {
+
+
+    text-align:center;
+
+
+    font-family:"Caveat",cursive;
+
+
+    font-size:45px;
+
+
+    margin-bottom:50px;
+
+
+}
+
+
+
+.table {
+
+
+    max-width:800px;
+
+
+    margin:auto;
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(3,1fr);
+
+
+    gap:35px;
+
+
+}
+
+
+
+.item {
+
+
+    background:#FFFDF8;
+
+
+    height:170px;
+
+
+    border-radius:25px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    font-size:65px;
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+    0 15px 30px rgba(122,92,67,.15);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.item span {
+
+
+    font-size:14px;
+
+
+    margin-top:15px;
+
+
+    text-align:center;
+
+
+    padding:0 10px;
+
+
+}
+
+
+
+.item:hover {
+
+
+    transform:
+
+    translateY(-10px)
+
+    rotate(-3deg);
+
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
 
 @media(max-width:768px){
 
-.overlay h1{
 
-font-size:40px;
+.cover-content h1 {
+
+    font-size:42px;
+
+}
+
+
+.cover-content h2 {
+
+    font-size:22px;
 
 }
 
-.overlay h2{
 
-font-size:22px;
+.table {
+
+
+    grid-template-columns:repeat(2,1fr);
+
 
 }
+
+
+
+.item {
+
+
+    height:140px;
+
+
+    font-size:50px;
+
+
+}
+
+
+}
+
+
+
+@media(max-width:450px){
+
+
+.table {
+
+
+    grid-template-columns:1fr;
+
+
+}
+
 
 }
